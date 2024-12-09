@@ -17,7 +17,7 @@ import mcjty.theoneprobe.api.IEntityDisplayOverride;
 import mcjty.theoneprobe.api.IProbeHitData;
 import mcjty.theoneprobe.api.IProbeInfo;
 import mcjty.theoneprobe.api.ProbeMode;
-import mcjty.theoneprobe.config.Config;
+import mcjty.theoneprobe.config.ConfigSetup;
 import static mcjty.theoneprobe.api.TextStyleClass.MODNAME;
 import static mcjty.theoneprobe.api.TextStyleClass.NAME;
 
@@ -34,7 +34,7 @@ public class AddonMooFluids extends AddonBlank {
     public List<IEntityDisplayOverride> getEntityDisplayOverrides() {
         return Collections.singletonList((mode, probeInfo, player, world, entity, data) -> {
             if (entity instanceof EntityFluidCow) {
-                if (Tools.show(mode, Config.getRealConfig().getShowModName())) {
+                if (Tools.show(mode, ConfigSetup.getRealConfig().getShowModName())) {
                     probeInfo.horizontal()
                             .element(new ElementFluidCowEntity(getElementId(player, "moo_fluid_cow"), ((EntityFluidCow) entity).getEntityFluid()))
                             .vertical()

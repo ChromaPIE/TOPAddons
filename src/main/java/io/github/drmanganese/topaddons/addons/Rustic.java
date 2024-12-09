@@ -14,7 +14,7 @@ import mcjty.theoneprobe.api.IBlockDisplayOverride;
 import mcjty.theoneprobe.api.IProbeHitData;
 import mcjty.theoneprobe.api.IProbeInfo;
 import mcjty.theoneprobe.api.ProbeMode;
-import mcjty.theoneprobe.config.Config;
+import mcjty.theoneprobe.config.ConfigSetup;
 import rustic.common.blocks.crops.BlockAppleSeeds;
 import rustic.common.blocks.crops.BlockGrapeLeaves;
 import rustic.common.blocks.crops.BlockGrapeStem;
@@ -48,7 +48,7 @@ public class Rustic extends AddonBlank {
         //Crop growth for rustic crops
         return Collections.singletonList((mode, probeInfo, player, world, blockState, data) -> {
             if (blockState.getBlock() instanceof BlockStakeCrop || blockState.getBlock() == GRAPE_LEAVES || blockState.getBlock() == GRAPE_STEM || blockState.getBlock() == APPLE_SEEDS) {
-                if (Tools.show(mode, Config.getRealConfig().getShowModName())) {
+                if (Tools.show(mode, ConfigSetup.getRealConfig().getShowModName())) {
                     probeInfo.horizontal()
                             .item(data.getPickBlock())
                             .vertical()

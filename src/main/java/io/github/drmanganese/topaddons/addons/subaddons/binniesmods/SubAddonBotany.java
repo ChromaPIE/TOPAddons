@@ -28,7 +28,7 @@ import mcjty.theoneprobe.api.IProbeHitData;
 import mcjty.theoneprobe.api.IProbeInfo;
 import mcjty.theoneprobe.api.ProbeMode;
 import mcjty.theoneprobe.api.TextStyleClass;
-import mcjty.theoneprobe.config.Config;
+import mcjty.theoneprobe.config.ConfigSetup;
 import static mcjty.theoneprobe.api.TextStyleClass.MODNAME;
 
 public class SubAddonBotany extends AddonBlank {
@@ -107,7 +107,7 @@ public class SubAddonBotany extends AddonBlank {
             //noinspection ConstantConditions
             if (blockState.getBlock() == FLOWER_BLOCK) {
                 TileEntityFlower tile = (TileEntityFlower) world.getTileEntity(data.getPos());
-                if (Tools.show(mode, Config.getRealConfig().getShowModName())) {
+                if (Tools.show(mode, ConfigSetup.getRealConfig().getShowModName())) {
                     probeInfo.horizontal()
                             .item(tile.getItemStack())
                             .vertical()

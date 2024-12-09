@@ -109,7 +109,7 @@ public class AddonBloodMagic extends AddonBlank {
                 ItemStack mimicStack = ((TileMimic) world.getTileEntity(data.getPos())).getStackInSlot(0);
 
                 if (!mimicStack.isEmpty() && mimicStack.getItem() instanceof ItemBlock) {
-                    if (Tools.show(mode, mcjty.theoneprobe.config.Config.getRealConfig().getShowModName())) {
+                    if (Tools.show(mode, mcjty.theoneprobe.config.ConfigSetup.getRealConfig().getShowModName())) {
                         probeInfo.horizontal()
                                 .item(mimicStack)
                                 .vertical()

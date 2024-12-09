@@ -55,6 +55,10 @@ repositories {
         name = "CurseForge"
         url = "https://minecraft.curseforge.com/api/maven/"
     }
+    maven {
+        name = 'Curse Maven'
+        url = 'https://www.cursemaven.com'
+    }
 }
 
 configurations.all {
@@ -62,7 +66,7 @@ configurations.all {
 }
 
 dependencies {
-    deobfCompile("mcjty.theoneprobe:TheOneProbe-1.12:1.12-1.4.22-13") { transitive = false }
+    deobfCompile("curse.maven:top-977883:5972060") { transitive = false }
 
     deobfCompile "net.industrial-craft:industrialcraft-2:2.8.75-ex112"
     deobfCompile "li.cil.oc:OpenComputers:MC1.12.1-1.7.+"

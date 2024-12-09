@@ -60,7 +60,7 @@ import mcjty.theoneprobe.api.IProbeInfo;
 import mcjty.theoneprobe.api.NumberFormat;
 import mcjty.theoneprobe.api.ProbeMode;
 import mcjty.theoneprobe.api.TextStyleClass;
-import mcjty.theoneprobe.config.Config;
+import mcjty.theoneprobe.config.ConfigSetup;
 
 @TOPAddon(dependency = "ic2", order = 0)
 public class AddonIndustrialCraft2 extends AddonBlank {
@@ -497,9 +497,9 @@ public class AddonIndustrialCraft2 extends AddonBlank {
     public static void euBar(IProbeInfo probeInfo, int energy, int capacity) {
         probeInfo.progress(energy, capacity, probeInfo.defaultProgressStyle()
                 .suffix("EU")
-                .filledColor(Config.rfbarFilledColor)
-                .alternateFilledColor(Config.rfbarAlternateFilledColor)
-                .borderColor(Config.rfbarBorderColor)
+                .filledColor(ConfigSetup.rfbarFilledColor)
+                .alternateFilledColor(ConfigSetup.rfbarAlternateFilledColor)
+                .borderColor(ConfigSetup.rfbarBorderColor)
                 .numberFormat(NumberFormat.COMPACT));
     }
 }

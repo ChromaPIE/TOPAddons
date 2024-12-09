@@ -21,7 +21,7 @@ import mcjty.theoneprobe.api.IProbeHitData;
 import mcjty.theoneprobe.api.IProbeInfo;
 import mcjty.theoneprobe.api.ProbeMode;
 import mcjty.theoneprobe.api.TextStyleClass;
-import mcjty.theoneprobe.config.Config;
+import mcjty.theoneprobe.config.ConfigSetup;
 
 import java.util.Collections;
 import java.util.List;
@@ -67,7 +67,7 @@ public class AddonArchitectureCraft extends AddonBlank {
                     boolean swap = player.getCapability(TOPAddons.OPTS_CAP, null).getBoolean("swapArchitectureShapeAndMaterial");
                     final String name = swap ? getShapeBlockName(data.getPickBlock()) : getShapeName(data.getPickBlock());
 
-                    if (Tools.show(mode, Config.getRealConfig().getShowModName())) {
+                    if (Tools.show(mode, ConfigSetup.getRealConfig().getShowModName())) {
                         probeInfo.horizontal()
                                 .item(data.getPickBlock())
                                 .vertical()

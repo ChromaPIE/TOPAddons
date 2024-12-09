@@ -100,7 +100,7 @@ public class AddonLycanitesMobs extends AddonBlank {
             if (entity instanceof BaseCreatureEntity && entity.getClass().getPackage().getName().equals("com.lycanitesmobs.elementalmobs.entity")) {
                 CreatureInfo info = ((BaseCreatureEntity) entity).creatureInfo;
 
-                if (Tools.show(mode, mcjty.theoneprobe.config.Config.getRealConfig().getShowModName())) {
+                if (Tools.show(mode, mcjty.theoneprobe.config.ConfigSetup.getRealConfig().getShowModName())) {
                     probeInfo.horizontal(probeInfo.defaultLayoutStyle().alignment(ElementAlignment.ALIGN_CENTER))
                             .entity(entity)
                             .vertical()

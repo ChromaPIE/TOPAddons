@@ -49,7 +49,7 @@ import mcjty.theoneprobe.api.IProbeInfo;
 import mcjty.theoneprobe.api.ProbeMode;
 import mcjty.theoneprobe.api.TextStyleClass;
 import mcjty.theoneprobe.apiimpl.elements.ElementProgress;
-import mcjty.theoneprobe.config.Config;
+import mcjty.theoneprobe.config.ConfigSetup;
 
 import static mcjty.theoneprobe.api.TextStyleClass.MODNAME;
 import static mcjty.theoneprobe.api.TextStyleClass.PROGRESS;
@@ -177,16 +177,16 @@ public class AddonOpenComputers extends AddonBlank {
             if (drone.node() != null) {
                 Node node = ((Drone) entity).node();
 
-                if (Config.getRealConfig().getRFMode() == 1) {
+                if (ConfigSetup.getRealConfig().getRFMode() == 1) {
                     probeInfo.progress(drone.globalBuffer(), drone.globalBufferSize(),
                             probeInfo.defaultProgressStyle()
                                     .suffix("RF")
-                                    .filledColor(Config.rfbarFilledColor)
-                                    .alternateFilledColor(Config.rfbarAlternateFilledColor)
-                                    .borderColor(Config.rfbarBorderColor)
-                                    .numberFormat(Config.rfFormat));
+                                    .filledColor(ConfigSetup.rfbarFilledColor)
+                                    .alternateFilledColor(ConfigSetup.rfbarAlternateFilledColor)
+                                    .borderColor(ConfigSetup.rfbarBorderColor)
+                                    .numberFormat(ConfigSetup.rfFormat));
                 } else {
-                    probeInfo.text(PROGRESS + "RF: " + ElementProgress.format(drone.globalBuffer(), Config.rfFormat, "RF"));
+                    probeInfo.text(PROGRESS + "RF: " + ElementProgress.format(drone.globalBuffer(), ConfigSetup.rfFormat, "RF"));
                 }
 
                 textPrefixed(probeInfo, "{*option.oc.address*}", holdingAnalyzer(player) ? node.address() : node.address().substring(0, 8));
@@ -205,7 +205,7 @@ public class AddonOpenComputers extends AddonBlank {
                     }
 
                     if (stacks.size() > 0) {
-                        IProbeInfo hori = probeInfo.horizontal(probeInfo.defaultLayoutStyle().borderColor(Config.chestContentsBorderColor));
+                        IProbeInfo hori = probeInfo.horizontal(probeInfo.defaultLayoutStyle().borderColor(ConfigSetup.chestContentsBorderColor));
                         int i = 0;
                         for (ItemStack stack : stacks) {
                             if (i == drone.control().selectedSlot()) {
@@ -241,7 +241,7 @@ public class AddonOpenComputers extends AddonBlank {
     public List<IBlockDisplayOverride> getBlockDisplayOverrides() {
         return Collections.singletonList((mode, probeInfo, player, world, blockState, data) -> {
             if (blockState.getBlock() instanceof SimpleBlock) {
-                if (Tools.show(mode, Config.getRealConfig().getShowModName())) {
+                if (Tools.show(mode, ConfigSetup.getRealConfig().getShowModName())) {
                     probeInfo.horizontal()
                             .item(data.getPickBlock())
                             .vertical()
@@ -263,7 +263,7 @@ public class AddonOpenComputers extends AddonBlank {
     public List<IEntityDisplayOverride> getEntityDisplayOverrides() {
         return Collections.singletonList((mode, probeInfo, player, world, entity, data) -> {
             if (entity instanceof Drone) {
-                if (Tools.show(mode, Config.getRealConfig().getShowModName())) {
+                if (Tools.show(mode, ConfigSetup.getRealConfig().getShowModName())) {
                     probeInfo.horizontal()
                             .entity(entity)
                             .vertical()

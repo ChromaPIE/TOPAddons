@@ -18,7 +18,7 @@ import mcjty.theoneprobe.api.IProbeHitData;
 import mcjty.theoneprobe.api.IProbeInfo;
 import mcjty.theoneprobe.api.ProbeMode;
 import mcjty.theoneprobe.api.TextStyleClass;
-import mcjty.theoneprobe.config.Config;
+import mcjty.theoneprobe.config.ConfigSetup;
 
 @TOPAddon(dependency = "storagedrawers")
 public class AddonStorageDrawers extends AddonBlank {
@@ -55,7 +55,7 @@ public class AddonStorageDrawers extends AddonBlank {
                 }
 
                 if (stacks.size() > 0) {
-                    IProbeInfo vertical = probeInfo.vertical(probeInfo.defaultLayoutStyle().borderColor(Config.chestContentsBorderColor).spacing(0));
+                    IProbeInfo vertical = probeInfo.vertical(probeInfo.defaultLayoutStyle().borderColor(ConfigSetup.chestContentsBorderColor).spacing(0));
                     for (ItemStack stack : stacks) {
                         if (tile.getDrawerAttributes().isUnlimitedVending()) {
                             ItemStack infiStack = stack.copy();
@@ -92,7 +92,7 @@ public class AddonStorageDrawers extends AddonBlank {
     public void getProbeConfig(IProbeConfig config, EntityPlayer player, World world, IBlockState blockState, IProbeHitData data) {
         if (world.getTileEntity(data.getPos()) instanceof TileEntityDrawers) {
             final boolean probeInMain = player.getHeldItemMainhand().getItem() == PROBE;
-            if (replaceDrawers && player.isSneaking() && !(Config.needsProbe == Config.PROBE_NEEDEDFOREXTENDED && !probeInMain) || Config.extendedInMain && probeInMain) {
+            if (replaceDrawers && player.isSneaking() && !(ConfigSetup.needsProbe == ConfigSetup.PROBE_NEEDEDFOREXTENDED && !probeInMain) || ConfigSetup.extendedInMain && probeInMain) {
                 config.showChestContents(IProbeConfig.ConfigMode.NOT);
             } else {
                 config.showChestContents(IProbeConfig.ConfigMode.EXTENDED);

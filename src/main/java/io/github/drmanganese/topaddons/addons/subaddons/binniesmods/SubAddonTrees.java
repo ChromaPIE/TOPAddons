@@ -29,7 +29,7 @@ import mcjty.theoneprobe.api.IProbeConfig;
 import mcjty.theoneprobe.api.IProbeHitData;
 import mcjty.theoneprobe.api.IProbeInfo;
 import mcjty.theoneprobe.api.ProbeMode;
-import mcjty.theoneprobe.config.Config;
+import mcjty.theoneprobe.config.ConfigSetup;
 import static mcjty.theoneprobe.api.TextStyleClass.*;
 
 public class SubAddonTrees extends AddonBlank {
@@ -71,7 +71,7 @@ public class SubAddonTrees extends AddonBlank {
         return Collections.singletonList((mode, probeInfo, player, world, blockState, data) -> {
             //noinspection ConstantConditions
             if (blockState.getBlock() == HOPS && blockState.getValue(BlockHops.HALF) == BlockHops.HopsHalf.UP) {
-                if (Tools.show(mode, Config.getRealConfig().getShowModName())) {
+                if (Tools.show(mode, ConfigSetup.getRealConfig().getShowModName())) {
                     probeInfo.horizontal()
                             .item(data.getPickBlock())
                             .vertical()

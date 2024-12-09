@@ -22,7 +22,7 @@ import mcjty.theoneprobe.api.IProbeInfo;
 import mcjty.theoneprobe.api.ProbeMode;
 import mcjty.theoneprobe.api.TextStyleClass;
 import mcjty.theoneprobe.apiimpl.elements.ElementProgress;
-import mcjty.theoneprobe.config.Config;
+import mcjty.theoneprobe.config.ConfigSetup;
 import net.bdew.generators.config.Tuning;
 import net.bdew.generators.controllers.PoweredController;
 import net.bdew.generators.controllers.exchanger.TileExchangerController;
@@ -67,16 +67,16 @@ public class AddonAdvancedGenerators extends AddonBlank {
                 AddonIndustrialCraft2.euBar(probeInfo, (int) (controller.power().stored() * Tuning.getSection("Power").getFloat("EU_MJ_Ratio")), (int) (controller.power().capacity() * Tuning.getSection("Power").getFloat("EU_MJ_Ratio")));
                 textPrefixed(probeInfo, "{*topaddons:generating*}", (int) (controller.outputAverage().average() * Tuning.getSection("Power").getFloat("EU_MJ_Ratio")) + "/" + (int) ((float) (((DataSlotNumeric) controller.maxMJPerTick()).value()) * Tuning.getSection("Power").getFloat("EU_MJ_Ratio")) + " EU/t");
             } else {
-                if (Config.getRealConfig().getRFMode() == 1) {
+                if (ConfigSetup.getRealConfig().getRFMode() == 1) {
                     probeInfo.progress((int) controller.power().stored(), (int) controller.power().capacity(),
                             probeInfo.defaultProgressStyle()
                                     .suffix("RF")
-                                    .filledColor(Config.rfbarFilledColor)
-                                    .alternateFilledColor(Config.rfbarAlternateFilledColor)
-                                    .borderColor(Config.rfbarBorderColor)
-                                    .numberFormat(Config.rfFormat));
+                                    .filledColor(ConfigSetup.rfbarFilledColor)
+                                    .alternateFilledColor(ConfigSetup.rfbarAlternateFilledColor)
+                                    .borderColor(ConfigSetup.rfbarBorderColor)
+                                    .numberFormat(ConfigSetup.rfFormat));
                 } else {
-                    probeInfo.text(PROGRESS + "RF: " + ElementProgress.format((int) controller.power().stored(), Config.rfFormat, "RF"));
+                    probeInfo.text(PROGRESS + "RF: " + ElementProgress.format((int) controller.power().stored(), ConfigSetup.rfFormat, "RF"));
                 }
                 textPrefixed(probeInfo, "{*topaddons:generating*}", (int) (controller.outputAverage().average() * Tuning.getSection("Power").getFloat("RF_MJ_Ratio")) + "/" + (int) ((float) (((DataSlotNumeric) controller.maxMJPerTick()).value()) * Tuning.getSection("Power").getFloat("RF_MJ_Ratio")) + " RF/t");
             }
@@ -105,16 +105,16 @@ public class AddonAdvancedGenerators extends AddonBlank {
                 AddonIndustrialCraft2.euBar(probeInfo, (int) (controller.power().stored() * Tuning.getSection("Power").getFloat("EU_MJ_Ratio")), (int) (controller.power().capacity() * Tuning.getSection("Power").getFloat("EU_MJ_Ratio")));
                 textPrefixed(probeInfo, "{*topaddons:generating*}", (int) (controller.outputAverage().average() * Tuning.getSection("Power").getFloat("EU_MJ_Ratio")) + "/" + (int) ((double) ((DataSlotNumeric) controller.maxMJPerTick()).value() * Tuning.getSection("Power").getFloat("EU_MJ_Ratio")) + " EU/t");
             } else {
-                if (Config.getRealConfig().getRFMode() == 1) {
+                if (ConfigSetup.getRealConfig().getRFMode() == 1) {
                     probeInfo.progress((int) controller.power().stored(), (int) controller.power().capacity(),
                             probeInfo.defaultProgressStyle()
                                     .suffix("RF")
-                                    .filledColor(Config.rfbarFilledColor)
-                                    .alternateFilledColor(Config.rfbarAlternateFilledColor)
-                                    .borderColor(Config.rfbarBorderColor)
-                                    .numberFormat(Config.rfFormat));
+                                    .filledColor(ConfigSetup.rfbarFilledColor)
+                                    .alternateFilledColor(ConfigSetup.rfbarAlternateFilledColor)
+                                    .borderColor(ConfigSetup.rfbarBorderColor)
+                                    .numberFormat(ConfigSetup.rfFormat));
                 } else {
-                    probeInfo.text(PROGRESS + "RF: " + ElementProgress.format((int) controller.power().stored(), Config.rfFormat, "RF"));
+                    probeInfo.text(PROGRESS + "RF: " + ElementProgress.format((int) controller.power().stored(), ConfigSetup.rfFormat, "RF"));
                 }
                 textPrefixed(probeInfo, "{*topaddons:generating*}", (int) (controller.outputAverage().average() * Tuning.getSection("Power").getFloat("RF_MJ_Ratio")) + "/" + (int) ((double) (((DataSlotNumeric) controller.maxMJPerTick()).value()) * Tuning.getSection("Power").getFloat("RF_MJ_Ratio")) + " RF/t");
             }

@@ -31,7 +31,7 @@ import mcjty.theoneprobe.api.IProbeHitEntityData;
 import mcjty.theoneprobe.api.IProbeInfo;
 import mcjty.theoneprobe.api.ProbeMode;
 import mcjty.theoneprobe.api.TextStyleClass;
-import mcjty.theoneprobe.config.Config;
+import mcjty.theoneprobe.config.ConfigSetup;
 import vswe.stevescarts.blocks.tileentities.TileEntityCartAssembler;
 import vswe.stevescarts.entitys.EntityMinecartModular;
 import vswe.stevescarts.modules.ModuleBase;
@@ -113,7 +113,7 @@ public class AddonStevesCarts2 extends AddonBlank {
 
             if (mode == ProbeMode.EXTENDED) {
                 if (inventory.size() > 0) {
-                    showItemStackRows(probeInfo, inventory, 9, probeInfo.defaultLayoutStyle().borderColor(Config.chestContentsBorderColor));
+                    showItemStackRows(probeInfo, inventory, 9, probeInfo.defaultLayoutStyle().borderColor(ConfigSetup.chestContentsBorderColor));
                 }
             }
 
@@ -184,7 +184,7 @@ public class AddonStevesCarts2 extends AddonBlank {
             if (entity instanceof EntityMinecartModular) {
                 EntityMinecartModular cart = (EntityMinecartModular) entity;
 
-                if (Tools.show(mode, mcjty.theoneprobe.config.Config.getRealConfig().getShowModName())) {
+                if (Tools.show(mode, mcjty.theoneprobe.config.ConfigSetup.getRealConfig().getShowModName())) {
                     probeInfo.horizontal()
                             .entity(cart)
                             .vertical()
