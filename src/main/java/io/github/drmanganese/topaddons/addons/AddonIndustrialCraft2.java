@@ -95,10 +95,11 @@ public class AddonIndustrialCraft2 extends AddonBlank {
         });
         OUTPUTS.put(TileEntitySemifluidGenerator.class, tile -> {
             FluidStack fluidStack = tile.getComponent(Fluids.class).getFluidTank("fluid").getFluid();
-            if (fluidStack != null) {
+            if (fluidStack != null && fluidStack.amount > 0) {
                 ISemiFluidFuelManager.FuelProperty property = Recipes.semiFluidGenerator.getFuelProperty(fluidStack.getFluid());
-                if (property != null && fluidStack.amount >= property.amount) {
-                    return property.power;
+                if (property != null) {
+                    long totalEnergy = property.energyPerMb * fluidStack.amount;
+                    return (double) totalEnergy;
                 }
             }
             return 0.0D;
